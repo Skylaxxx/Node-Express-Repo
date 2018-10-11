@@ -4,13 +4,13 @@
         <v-flex xs12 md10 lg6 offset-md1 offset-lg3>
           <div class="white elevation-2">
             <v-toolbar flat dense class="cyan" dark>
-              <v-toolbar-title>Register</v-toolbar-title>
+              <v-toolbar-title>Login</v-toolbar-title>
             </v-toolbar>
             <div class="pl-4 pr-4 pb-2 pt-2">
               <v-text-field v-model="email" label="email"></v-text-field><br>
               <v-text-field v-model="password" label="password"></v-text-field>
               <div class="error" v-html="error"></div>
-              <v-btn class="cyan hasBorder whiteText" @click="register">Register</v-btn>
+              <v-btn class="cyan hasBorder whiteText" @click="login">Login</v-btn>
             </div>
           </div>
       </v-flex>
@@ -29,9 +29,9 @@ export default {
     }
   },
   methods: {
-      async register () {
+      async login () {
       try {
-      await AuthenticationService.register({
+      await AuthenticationService.login({
         email:this.email,
         password: this.password
       }).then(this.error = "success")
@@ -54,5 +54,7 @@ export default {
 .hasBorder {
  border-style: inset
  }
-
+ .whiteText {
+  color: white
+ }
 </style>

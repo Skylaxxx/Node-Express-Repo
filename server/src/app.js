@@ -12,7 +12,7 @@ app.use(cors())
 
 require('/home/cmg/Desktop/pupil-labs/Node-Express-Repo/server/src/routes')(app)
 
-sequelize.sync()
+sequelize.sync({ force: true })
   .then(() => {
     app.listen(config.port)
     console.log('server started')

@@ -1,12 +1,24 @@
 <template>
   <div id="app">
-    <router-view/>
+    <v-app>
+      <page-header/>
+      <main>
+        <v-container fluid>
+          <router-view/>
+        </v-container>
+      </main>
+    </v-app>
+   
   </div>
 </template>
 
 <script>
+import PageHeader from '@/components/PageHeader.vue'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    PageHeader
+  }
 }
 </script>
 
@@ -16,4 +28,7 @@ export default {
   text-align: center;
   margin-top: 60px;
 }
+ .whiteText {
+  color: white
+ }
 </style>
