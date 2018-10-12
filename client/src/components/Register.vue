@@ -1,21 +1,17 @@
 <template>
   <v-container grid-list-md fill-height>
-      <v-layout  row wrap align-content-start>
-        <v-flex xs12 md10 lg6 offset-md1 offset-lg3>
-          <div class="white elevation-2">
-            <v-toolbar flat dense class="cyan" dark>
-              <v-toolbar-title>Register</v-toolbar-title>
-            </v-toolbar>
-            
-            <div class="pl-4 pr-4 pb-2 pt-2">
-              <form autocomplete="off">
-                <v-text-field v-model="email" label="email"></v-text-field><br>
-                <v-text-field type="password" autocomplete="new-password" v-model="password" label="password"></v-text-field>
-                <div class="error" v-html="error"></div>
-                <v-btn class="cyan hasBorder whiteText" @click="register">Register</v-btn>
-              </form>
-            </div>
+    <v-layout  row wrap align-content-start>
+      <v-flex xs12 md10 lg6 offset-md1 offset-lg3>
+        <panel title="Register">
+          <div class="pl-4 pr-4 pb-2 pt-2">
+            <form autocomplete="off">
+              <v-text-field v-model="email" label="email"></v-text-field><br>
+              <v-text-field type="password" autocomplete="new-password" v-model="password" label="password"></v-text-field>
+              <div class="error" v-html="error"></div>
+              <v-btn class="cyan hasBorder whiteText" @click="register">Register</v-btn>
+            </form>
           </div>
+        </panel> 
       </v-flex>
     </v-layout>
   </v-container>
@@ -23,6 +19,7 @@
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
+import Panel from '@/components/Panel'
 export default {
   data () {
     return {
@@ -30,6 +27,9 @@ export default {
       password: '',
       error: null
     }
+  },
+  components: {
+    Panel
   },
   methods: {
       async register () {
@@ -40,13 +40,11 @@ export default {
         })
         this.$store.dispatch('setToken',response.data.token)
         this.$store.dispatch('setUser',response.data.user)
+        this.$router.push({name: 'songs'})
 
       } catch (resp) {
          this.error = resp.message // _context.t0.response.data.error;
-      }
-
-      
-     
+      }      
     }
   }
 }
@@ -60,5 +58,7 @@ export default {
 .hasBorder {
  border-style: inset
  }
-
+ .whiteText {
+  color: white
+ }
 </style>

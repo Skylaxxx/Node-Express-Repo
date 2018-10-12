@@ -1,18 +1,15 @@
 <template>
   <v-container grid-list-md fill-height>
-      <v-layout  row wrap align-content-start>
-        <v-flex xs12 md10 lg6 offset-md1 offset-lg3>
-          <div class="white elevation-2">
-            <v-toolbar flat dense class="cyan" dark>
-              <v-toolbar-title>Login</v-toolbar-title>
-            </v-toolbar>
-            <div class="pl-4 pr-4 pb-2 pt-2">
-              <v-text-field v-model="email" label="email"></v-text-field><br>
-              <v-text-field type="password" v-model="password" label="password"></v-text-field>
-              <div class="error" v-html="error"></div>
-              <v-btn class="cyan hasBorder whiteText" @click="login">Login</v-btn>
-            </div>
+    <v-layout  row wrap align-content-start>
+      <v-flex xs12 md10 lg6 offset-md1 offset-lg3>
+        <panel title="Login">
+          <div class="pl-4 pr-4 pb-2 pt-2">
+            <v-text-field v-model="email" label="email"></v-text-field><br>
+            <v-text-field type="password" v-model="password" label="password"></v-text-field>
+            <div class="error" v-html="error"></div>
+            <v-btn class="cyan hasBorder whiteText" @click="login">Login</v-btn>
           </div>
+        </panel> 
       </v-flex>
     </v-layout>
   </v-container>
@@ -20,6 +17,7 @@
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
+import Panel from '@/components/Panel'
 export default {
   data () {
     return {
@@ -27,6 +25,9 @@ export default {
       password: '',
       error: null
     }
+  },
+  components: {
+    Panel
   },
   methods: {
       async login () {
@@ -37,6 +38,7 @@ export default {
         })
         this.$store.dispatch('setToken',response.data.token)
         this.$store.dispatch('setUser',response.data.user)
+        this.$router.push({name: 'songs'})
       } catch (resp) {
          this.error = resp.message // _context.t0.response.data.error;
       }
