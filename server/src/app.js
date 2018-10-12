@@ -12,7 +12,7 @@ app.use(cors())
 
 require('/home/cmg/Desktop/pupil-labs/Node-Express-Repo/server/src/routes')(app)
 
-sequelize.sync() // { force: true } this clears the data base, remove later
+sequelize.sync({ force: true }) // { force: true } this clears the data base, remove later
   .then(() => {
     app.listen(config.port)
     console.log('server started')

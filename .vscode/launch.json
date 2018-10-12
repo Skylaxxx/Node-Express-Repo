@@ -17,7 +17,7 @@
             "program": "${workspaceFolder}/server/src/app.js"
         },
 
-        /**
+        
         {
             "type": "chrome",
             "request": "launch",
@@ -35,8 +35,8 @@
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}/client/src/router/index.js"
-        },
-        **/
+        }
+        
 
     ]
 }
