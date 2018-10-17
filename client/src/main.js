@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import { sync } from 'vuex-router-sync'
-import store from '/home/cmg/Desktop/pupil-labs/Node-Express-Repo/client/src/store/store'
+import store from './store/store'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 

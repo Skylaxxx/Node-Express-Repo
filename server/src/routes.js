@@ -1,7 +1,7 @@
-const AuthenticataionController = require('/home/cmg/Desktop/pupil-labs/Node-Express-Repo/server/src/controllers/AuthenticationController')
+const AuthenticataionController = require('../src/controllers/AuthenticationController')
 
-const AuthenticataionControllerPolicy = require('/home/cmg/Desktop/pupil-labs/Node-Express-Repo/server/src/policies/AuthenticationControllerPolicy')
-const SongsController = require('/home/cmg/Desktop/pupil-labs/Node-Express-Repo/server/src/controllers/SongsController')
+const AuthenticataionControllerPolicy = require('../src/policies/AuthenticationControllerPolicy')
+const SongsController = require('../src/controllers/SongsController')
 
 module.exports = (app) => {
   app.post('/register',

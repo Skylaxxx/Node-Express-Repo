@@ -10,7 +10,7 @@ app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
-require('/home/cmg/Desktop/pupil-labs/Node-Express-Repo/server/src/routes')(app)
+require('../src/routes')(app)
 
 sequelize.sync({ force: true }) // { force: true } this clears the data base, remove later
   .then(() => {

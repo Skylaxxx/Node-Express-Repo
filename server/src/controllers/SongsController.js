@@ -1,4 +1,4 @@
-const { Song } = require('/home/cmg/Desktop/pupil-labs/Node-Express-Repo/server/src/models')
+const { Song } = require('../models')
 
 module.exports = {
   async index (req, res) {

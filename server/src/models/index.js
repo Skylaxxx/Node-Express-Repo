@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const Sequelize = require('sequelize')
-const config = require('/home/cmg/Desktop/pupil-labs/Node-Express-Repo/server/src/conifg/config')
+const config = require('../conifg/config')
 const db = {}
 
 const sequelize = new Sequelize(
